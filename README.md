@@ -1,41 +1,27 @@
 # cra-hypercore-8-starter
-An ejected create react app for hypercore 8 starter
+An ejected create react app for hypercore 8 starter for dweb development.
 
-## Changes
+## How to use
+The project uses [budo](https://github.com/mattdesl/budo) for rapid server prototyping. It can also bundle your project using straight browserify and deploy to [dat](https://dat.foundation/). 
+
+### install 
+run `$ yarn # install deps`
+
+then, either
+
+### Bundle for local dev
+run `$ yarn bundle`
+
+### Build & deploy to dat
+run `$ yarn share`
+
+## What does this mean for dweb development?
+Before, dweb apps needed to live in browsers that supported certain p2p protocols. With a simple proxy and hyperswarm and use with hypercore 8, data can now get replicated cross browser sessions with minimal infrastructure.
+
+## What changes were made for this to work?
+Inspiration from this [project](https://github.com/tinchoz49/workaround-hypercore8-browser)
 1. `yarn add babel-plugin-module-resolver -D`
-2. in babel aliased `sodium-native` for `@geut/sodium-native-plus`
-3. 🍾
-
-Since it's already bundled with browserify, you can post right to dat project.
+2. in babel config, aliased `sodium-native` for `@geut/sodium-native-plus` so crypto primitives are supported
+3. transpile 🍾🍾🍾
 
 MIT
-
-"babel": {
-    "presets": [
-      "@babel/env",
-      "@babel/react"
-    ],
-    "plugins": [
-      [
-        "module-resolver",
-        {
-          "alias": {
-            "sodium-native": "@geut/sodium-javascript-plus",
-            "sodium-universal": "@geut/sodium-javascript-plus"
-          }
-        }
-      ],
-      [
-        "@babel/plugin-proposal-export-default-from"
-      ],
-      [
-        "@babel/plugin-syntax-dynamic-import"
-      ],
-      [
-        "@babel/plugin-transform-runtime",
-        {
-          "regenerator": true
-        }
-      ]
-    ]
-  }
