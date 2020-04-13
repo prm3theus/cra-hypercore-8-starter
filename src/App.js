@@ -1,33 +1,17 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-
-import feed from './feed'
-// const feed = hypercore('./my-first-dataset', {valueEncoding: 'utf-8'})
-
-// (async () => {
-
-//   await feed.append('hello')
-//   await feed.append('world')
-
-//   console.log(await feed.get(0)) // prints hello
-//   console.log(await feed.get(1)) // prints world
-// })
-
+// import feed
+import feed from './store/feed'
 
 function App() {
 
+  const [count, setCount] = useState(0);
 
-  // await feed.append('hello')
-  // await feed.append('world')
-
-  // console.log(await feed.get(0)) // prints hello
   return (
     <div className="App">
       <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Open up <code>console</code> and increment the counter.
         </p>
         <a
           className="App-link"
@@ -37,6 +21,24 @@ function App() {
         >
           Learn React
         </a>
+        <br />
+        <a
+          className="App-link"
+          href="https://github.com/mafintosh/hypercore"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn Hypercore
+        </a>
+        <br />
+        <button onClick={async () => {
+            const newCount = count + 1
+            await feed.append({msg: 'howdie ' + newCount})
+            setCount(newCount)
+         }}>
+          Click me
+        </button>
+        <p>{count}</p>
       </header>
     </div>
   );

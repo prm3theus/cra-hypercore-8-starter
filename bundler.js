@@ -1,25 +1,12 @@
-var fs = require("fs");
-var browserify = require("browserify");
-var path = require('path');
-
-var babelify = require("babelify");
-
-browserify(path.join(__dirname, "src/index.js"))
-  .transform(babelify, {
-  	// global: true,
-  	// ignore: /\/node_modules\/(?!app\/)/,
-  	presets: [
-  		"@babel/preset-env", 
-  		"@babel/react"
-  	],
-  	plugins: [
-      [
-        "@babel/plugin-proposal-export-default-from"
-      ],
-      [
-        "@babel/plugin-syntax-dynamic-import"
-      ],
+require('budo').cli(process.argv.slice(2), {
+  pushstate: true,
+  browserify: {
+    transform: [
+    	['browserify-css'],
+    	['babelify', {
+        	global: true,
+        	only: [/(\/src|node_modules\/noise-protocol|node_modules\/simple-hypercore-protocol|node_modules\/hmac-blake2b)/]
+      	}],
     ]
-  })
-  .bundle().pipe(process.stdout);
-  // .pipe(fs.createWriteStream("./public/bundle.js"));
+  }
+})

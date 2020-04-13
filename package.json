@@ -47,6 +47,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "random-access-memory": "^3.1.1",
     "react": "^16.13.1",
     "react-app-polyfill": "^1.0.6",
     "react-dev-utils": "^10.2.1",
@@ -75,15 +76,17 @@
     "reactify": "^1.1.1"
   },
   "scripts": {
-    "bro": "browserify src/index.js -g browserify-css > public/bundle.js",
+    "bundle": "node bundler src/index.js:js/bundle.js --live --open --dir public",
+    "share": "yarn build && dat share public",
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "node build.js",
     "test": "node scripts/test.js"
   },
   "browserify": {
     "transform": [
       "babelify",
-      "reactify"
+      "reactify",
+      "browserify-css"
     ]
   },
   "eslintConfig": {
