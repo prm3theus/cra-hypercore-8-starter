@@ -1,5 +1,5 @@
 # cra-hypercore-8-starter
-An ejected create react app for hypercore 8 starter used for dweb development. Added the needed babel plugins / aliases to speedup p2p dev. Might add networking as a default too..
+An ejected create react app hypercore 8 starter used for dweb development and in browser support. Added the needed babel plugins / aliases to speedup p2p dev. Might add networking as a default too..
 
 ## How to use
 The project uses [budo](https://github.com/mattdesl/budo) for rapid server prototyping. It can also bundle your project using straight browserify and deploy to [dat](https://dat.foundation/). 
