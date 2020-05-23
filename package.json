@@ -7,6 +7,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@geut/hypercore-promise": "^1.2.0",
     "@geut/sodium-javascript-plus": "^0.0.4",
+    "@hyperswarm/replicator-web": "git+https://git@github.com/prm3theus/replicator-web",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -80,7 +81,7 @@
     "share": "yarn build && dat share public",
     "start": "node scripts/start.js",
     "build": "node build.js",
-    "test": "node scripts/test.js"
+    "test": "node test/index.js"
   },
   "browserify": {
     "transform": [

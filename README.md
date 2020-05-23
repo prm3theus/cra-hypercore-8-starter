@@ -15,6 +15,10 @@ run `$ yarn bundle`
 ### Build & deploy to dat
 run `$ yarn share`
 
+### Testing with another remote client
+run a proxy in a terminal `$ hyperswarm-web`
+then get key from browser, and run `node test/index.js d7b59491925f3daf3ae6b950e9426e218e1f3024a1f54dcf9d8c0fa536ffab72`
+
 ## What does this mean for dweb development?
 Before, dweb apps needed to live in browsers that supported certain p2p protocols. Now, with a simple proxy server with something like [hyperswarm](https://github.com/RangerMauve/hyperswarm-web), hypercore 8 comes to the browser, data can now get replicated cross browser sessions with minimal infrastructure.
 
