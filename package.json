@@ -7,6 +7,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@geut/hypercore-promise": "^1.2.0",
     "@geut/sodium-javascript-plus": "^0.0.4",
+    "@hyperswarm/replicator": "^1.7.1",
     "@hyperswarm/replicator-web": "git+https://git@github.com/prm3theus/replicator-web",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
