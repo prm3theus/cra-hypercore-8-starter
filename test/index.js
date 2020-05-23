@@ -7,7 +7,10 @@ const pump = require('pump')
 const IS_HOST = process.argv.length > 2 ? false : true
 const key = !IS_HOST && Buffer.from(process.argv[2], 'hex')
 console.log(`HOST: ${IS_HOST}`)
-const feed = key ? hypercore(ram, key, {valueEncoding: 'json'}) : hypercore(ram, {valueEncoding: 'json'})
+
+const bufferedKey = Buffer.from( key )
+
+const feed = key ? hypercore(ram, bufferedKey, {valueEncoding: 'json'}) : hypercore(ram, {valueEncoding: 'json'})
 
 const swarm = hyperswarm({
 	wsProxy: 'ws://localhost:4977'
@@ -42,7 +45,7 @@ feed.on('ready', () => {
 		console.log('data')
 		console.log(data)
 	})
-	
+
 })
 
 let i=0
